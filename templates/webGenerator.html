@@ -1,0 +1,115 @@
+{% extends 'header.html' %}
+{% block title %}Web generation{% endblock %}
+
+{% block link %}
+<link href="{{ url_for('static', path='/css/webServer.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', path='/css/inputStyle.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+<main class="container-fluid row">
+    <nav class="col-1 ml-lg-5 leftNavBlock">
+        <ul class="nav nav-stacked" style="display: inline-flex; flex-direction: column;">
+            <li>
+                <div class="card leftNavBlock">
+                    <div class="card-body">
+                        <h5 class="card-title" onclick="createRoute()">Router</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" data-target="#Router" data-toggle="collapse">About
+                        </h6>
+                        <div class="collapse" id="Route">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a class="card-link" href="#">Ссылка карты</a>
+                            <a class="card-link" href="#">Другая ссылка</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="card leftNavBlock">
+                    <div class="card-body">
+                        <h5 class="card-title" onclick="createDB()">DB</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" data-target="#DB" data-toggle="collapse">About</h6>
+                        <div class="collapse" id="DB">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a class="card-link" href="#">Ссылка карты</a>
+                            <a class="card-link" href="#">Другая ссылка</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="card leftNavBlock">
+                    <div class="card-body">
+                        <h5 class="card-title" onclick="createConfig()">Config</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" data-target="#Config" data-toggle="collapse">About
+                        </h6>
+                        <div class="collapse" id="Config">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a class="card-link" href="#">Ссылка карты</a>
+                            <a class="card-link" href="#">Другая ссылка</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="container col-5" id="constructor">
+<!--        <div id="block${blockID}" class="card bg-success text-white block" style="margin: 16px 0;">-->
+<!--            <div class="card-body">-->
+<!--                <div class="card-header">-->
+<!--                    <h3>DB</h3>-->
+<!--                </div>-->
+<!--                <div class="container">-->
+<!--                    <div>-->
+<!--                        <div style="display: inline-flex; flex-direction: row;">-->
+<!--                            <div class="group mt-lg-4">-->
+<!--                                <input class="materialInput" id="dbName${blockID}" type="text" required >-->
+<!--                                <span class="bar"></span>-->
+<!--                                <label class="materialLabel">BD Name</label>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <div id="dbSettings">-->
+<!--                            <div class="input-group col-6 mt-lg-3" style="margin: 0; padding: 0" id="field1">-->
+<!--                                <input id="fieldName" type="text" class="form-control">-->
+<!--                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">-->
+<!--                                    Type-->
+<!--                                </button>-->
+<!--                                <ul id="type" class="dropdown-menu dropdown-menu-end">-->
+<!--                                    <li><a class="dropdown-item">Text</a></li>-->
+<!--                                    <li><a class="dropdown-item">String</a></li>-->
+<!--                                    <li><hr class="dropdown-divider"></li>-->
+<!--                                    <li><a class="dropdown-item">Integer</a></li>-->
+<!--                                    <li><a class="dropdown-item">Float</a></li>-->
+<!--                                    <li><hr class="dropdown-divider"></li>-->
+<!--                                    <li><a class="dropdown-item">Boolean</a></li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="mt-lg-3">-->
+<!--                            <button type="button" class="btn btn-primary" onclick="setDBSettings(0, 0)">-->
+<!--                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">-->
+<!--                                    <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"></path>-->
+<!--                                </svg>-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </section>
+    <div class="col-lg-1" style="margin-top: 10%;">
+        <button class="btn btn-primary" id="sendBlocks" type="button">Send</button>
+    </div>
+</main>
+
+<script src="{{ url_for('static', path='/js/blocks.js') }}"></script>
+<script src="{{ url_for('static', path='/js/WebGeneration.js') }}"></script>
+
+{% endblock %}

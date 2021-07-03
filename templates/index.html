@@ -1,0 +1,33 @@
+{% extends 'header.html' %}
+
+{% block title %}{% endblock %}
+
+{% block main %}
+
+{% macro projectCard(title, text, img) %}
+<div class="card cardProject col-auto" onclick="goToProject('{{title}}')" style="padding: 0px;">
+    <img alt="" class="card-img-top" src="{{url_for('static', path=img)}}">
+    <div class="card-body">
+        <h4 class="card-title">{{title}}</h4>
+        <p class="card-text">{{text}}</p>
+    </div>
+</div>
+{% endmacro %}
+
+<main class="tab-content container">
+    <section class="tab-pane active mainContentBlock" id="myProject" role="tabpanel">
+        <div class="row allProjects">
+            {% for i in projects %}
+            {{projectCard(i.title, i.text, i.img)}}
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="tab-pane" id="AboutMe" role="tabpanel">
+        <h1>XD2</h1>
+    </section>
+</main>
+
+<script src="{{url_for('static', path='/js/main.js')}}"></script>
+
+{% endblock %}

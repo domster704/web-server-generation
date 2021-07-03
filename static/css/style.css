@@ -1,0 +1,43 @@
+:root {
+    --text-font-size-nav: 14pt;
+    --border-card: 11px 11px 0px 0px;
+}
+
+/* .mainContentBlock {
+  margin-top: 56px;
+} */
+
+.navMenu {
+    border-bottom: 1px solid #dadce0;
+    width: 100%;
+    z-index: 10;
+    padding: 2px 1%;
+    background-color: white;
+}
+
+a.nav-link {
+    color: black;
+    font-size: var(--text-font-size-nav);
+    margin: 0 0.5vw;
+    padding: 5px 5px 7px;
+}
+
+a.nav-link:hover {
+    border-radius: 9px;
+    background-color: #f1f3f4;
+}
+
+.cardProject {
+    margin: 1vh;
+    max-width: 19vw;
+    border-radius: var(--border-card);
+}
+
+img.card-img-top {
+    border-radius: var(--border-card);
+    height: calc(16 / 9 * 7vw);
+}
+
+.disBlock {
+    display: none;
+}

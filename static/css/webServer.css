@@ -1,0 +1,35 @@
+html {
+    overflow-y: hidden;
+}
+
+nav.leftNavBlock {
+    margin-top: 10%;
+}
+
+div.leftNavBlock {
+    width: 18rem;
+    border-radius: 5px;
+    margin: 1%;
+}
+
+.constructorBlock {
+    display: inline-flex;
+    flex-direction: row;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+section#constructor {
+    overflow-y: scroll;
+    height: 93vh;
+}
+
+section#constructor::-webkit-scrollbar {
+    width: 0;
+}
+
+div.block.card {
+    max-height: min-content;
+    border-radius: 10px;
+}
