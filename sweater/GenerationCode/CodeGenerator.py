@@ -10,7 +10,7 @@ class CodeGenerator:
 		if not os.path.exists(f'../{self._savedFolder}/{self._directoryOfPythonFiles}'):
 			os.makedirs(f'../{self._savedFolder}/{self._directoryOfPythonFiles}')
 
-		if not os.path.exists(f'../data/templates'):
+		if not os.path.exists(f'../{self._savedFolder}/templates'):
 			os.makedirs(f'../{self._savedFolder}/templates')
 
 		if not os.path.exists(f'../{self._savedFolder}/static'):
@@ -18,13 +18,13 @@ class CodeGenerator:
 			os.makedirs(f'../{self._savedFolder}/static/css')
 			os.makedirs(f'../{self._savedFolder}/static/js')
 
-		if not os.path.exists(f'{self._savedFolder}/{self._directoryOfPythonFiles}/DB'):
-			os.makedirs(f'{self._savedFolder}/{self._directoryOfPythonFiles}/DB')
+		if not os.path.exists(f'../{self._savedFolder}/{self._directoryOfPythonFiles}/DB'):
+			os.makedirs(f'../{self._savedFolder}/{self._directoryOfPythonFiles}/DB')
 
-		self.dbFilePath = f'{self._savedFolder}/{self._directoryOfPythonFiles}/DB/db.py'
-		self.configFilePath = f'{self._savedFolder}/{self._directoryOfPythonFiles}/config.py'
-		self.apiFilePath = f'{self._savedFolder}/{self._directoryOfPythonFiles}/api.py'
-		self.mainFilePath = f'{self._savedFolder}/{self._directoryOfPythonFiles}/main.py'
+		self.dbFilePath = f'../{self._savedFolder}/{self._directoryOfPythonFiles}/DB/db.py'
+		self.configFilePath = f'../{self._savedFolder}/{self._directoryOfPythonFiles}/config.py'
+		self.apiFilePath = f'../{self._savedFolder}/{self._directoryOfPythonFiles}/api.py'
+		self.mainFilePath = f'../{self._savedFolder}/{self._directoryOfPythonFiles}/main.py'
 
 		self.newVariables = []
 		self.allVariables = set([])
@@ -50,15 +50,14 @@ app.config['JSON_AS_ASCII'] = False
 			f.write(f'''
 from flask import request, jsonify, session, make_response, url_for, redirect
 
-from {self._directoryOfPythonFiles}.config import app
+from {self._savedFolder}.{self._directoryOfPythonFiles}.config import *
 					'''.strip() + '\n' * 2)
 
 		with open(self.mainFilePath, 'w', encoding='utf-8') as f:
 			f.write(f'''
 from flask import render_template
 
-from {self._directoryOfPythonFiles}.api import *
-from {self._directoryOfPythonFiles}.config import *
+from {self._savedFolder}.{self._directoryOfPythonFiles}.api import *
 					'''.strip() + '\n' * 2)
 
 	def makeRoutes(self, routesList: list):

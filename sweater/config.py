@@ -5,7 +5,7 @@ from fastapi.templating import Jinja2Templates
 from sweater.GenerationCode.CodeGenerator import *
 
 codeGenerator = CodeGenerator()
-# codeGenerator.createPrimaryFiles()
+codeGenerator.createPrimaryFiles()
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="../static"), name="static")
