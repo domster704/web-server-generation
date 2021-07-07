@@ -9,14 +9,15 @@ api = APIRouter(prefix="/api", )
 
 @api.post('/sendBlocks/{typeBlock}')
 async def sendBlocks(typeBlock: str, data: list):
-	if typeBlock == 'route':
+	if typeBlock == 'route' and data != {}:
 		routesList = RouteList(data)
 		codeGenerator.makeRoutes(routesList)
 		print(data)
-	elif typeBlock == 'db':
-		dbList = DBList(data)
+	elif typeBlock == 'db' and data != {}:
 		print(data)
-	elif typeBlock == 'config':
+		dbList = DBList(data)
+		codeGenerator.makeDB(dbList)
+	elif typeBlock == 'config' and data != {}:
 		print('config')
 		print(data)
 

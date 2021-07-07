@@ -63,10 +63,8 @@ from {self._savedFolder}.{self._directoryOfPythonFiles}.api import *
 	def makeRoutes(self, routesList: list):
 		path = str()
 		returnPart = str()
-		# print(data)
 
 		for i in routesList:
-			# print(i)
 			if i.returnType == 'html':
 				path = self.mainFilePath
 				returnPart = f"render_template('{i.returnType}')"
@@ -87,9 +85,28 @@ def page_{i.ip.split('/')[-1]}():
 	return {returnPart}
 					'''.strip() + '\n' * 3, path])
 
-	def makeDB(self):
+	def makeDB(self, dbList: list):
 		with open(self.dbFilePath, 'a', encoding='utf-8') as f:
-			f.write('print(2)\n')
+			f.write(f'''
+from sqlalchemy import Column, INTEGER, String, Boolean, TEXT, Float
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+engine = create_engine('sqlite:///main-db.sqlite?check_same_thread=False')
+			'''.strip() + '\n')
+			for i in dbList:
+				newFields = ''
+				for field in i.fields:
+					newFields += f'{field[0]} = Column({field[1]}, nullable=False)\n\t'
+
+				f.write('\n\n' + f'''
+class {i.tableName.title().replace(' ', '')}:
+	{newFields}
+
+Base.metadata.create_all(engine)
+				'''.strip() + '\n')
 
 	def addToFiles(self):
 		pathSet = set([])
@@ -114,10 +131,9 @@ def page_{i.ip.split('/')[-1]}():
 		self.newVariables = []
 		self.funcList = []
 
-	@staticmethod
-	def deleteDirectory():
+	def deleteDirectory(self):
 		try:
-			shutil.rmtree('../data')
+			shutil.rmtree(f'../{self._savedFolder}')
 		except:
 			pass
 

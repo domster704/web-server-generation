@@ -231,7 +231,7 @@ class DB extends Block {
         }
 
         this._data = {
-            dbName: $(`#dbName${this._blockID}`).val(),
+            tableName: $(`#dbName${this._blockID}`).val(),
             fields: fields
         };
 

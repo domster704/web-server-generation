@@ -90,10 +90,10 @@ function setDBSettings(dbName, blockID) {
             Type
         </button>
         <ul id="type" class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" onclick="setType(${blockID}, ${fieldID}, 'Text')">Text</a></li>
+            <li><a class="dropdown-item" onclick="setType(${blockID}, ${fieldID}, 'TEXT')">TEXT</a></li>
             <li><a class="dropdown-item" onclick="setType(${blockID}, ${fieldID}, 'String')">String</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" onclick="setType(${blockID}, ${fieldID}, 'Integer')">Integer</a></li>
+            <li><a class="dropdown-item" onclick="setType(${blockID}, ${fieldID}, 'INTEGER')">INTEGER</a></li>
             <li><a class="dropdown-item" onclick="setType(${blockID}, ${fieldID}, 'Float')">Float</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" onclick="setType(${blockID}, ${fieldID}, 'Boolean')">Boolean</a></li>
